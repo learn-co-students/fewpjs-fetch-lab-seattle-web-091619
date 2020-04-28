@@ -1,5 +1,14 @@
-function fetchBooks() {
+const gotAPI = 'https://anapioficeandfire.com/api/books'
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetchBooks()
+})
+
+function fetchBooks() {
+  return fetch(gotAPI)
+  .then(response => response.json())
+  .then(json => renderBooks(json))
 }
 
 function renderBooks(json) {
@@ -10,7 +19,3 @@ function renderBooks(json) {
     main.appendChild(h2)
   })
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  fetchBooks()
-})
